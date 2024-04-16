@@ -16,4 +16,11 @@ async function GET(request, { params }) {
   return NextResponse.json({ data: topic }, { status: 200 });
 }
 
-export { PUT, GET };
+async function DELETE(request, { params }) {
+  const { id } = params;
+  await connectMongoDB();
+  await Topic.findByIdAndDelete(id);
+  return NextResponse.json({ message: "Topic deleted" }, { status: 200 });
+}
+
+export { PUT, GET, DELETE };

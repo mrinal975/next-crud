@@ -19,7 +19,6 @@ async function getTopics() {
 }
 async function TopicList() {
   const topics = await getTopics();
-  console.log("---");
   return (
     <>
       {topics.map((topic) => (
@@ -29,7 +28,7 @@ async function TopicList() {
             <div>{topic.description}</div>
           </div>
           <div className="flex gap-2">
-            <RemoveBtn />
+            <RemoveBtn id={topic._id} />
             <Link href={`/editTopic/${topic._id}`}>
               <HiPencilAlt size={24} />
             </Link>

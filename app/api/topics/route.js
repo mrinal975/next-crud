@@ -1,6 +1,7 @@
 import connectMongoDB from "@/libs/mongodb";
 import Topic from "@/models/topics";
 import { NextResponse } from "next/server";
+
 async function POST(request) {
   const { title, description } = await request.json();
   await connectMongoDB();
@@ -13,6 +14,7 @@ async function GET() {
   const topics = await Topic.find();
   return NextResponse.json({ data: topics }, { status: 200 });
 }
+
 async function DELETE(request) {
   const id = request.nextUrl.searchParams.get("id");
   await connectMongoDB();

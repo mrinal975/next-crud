@@ -30,7 +30,7 @@ async function TopicList() {
           </div>
           <div className="flex gap-2">
             <RemoveBtn />
-            <Link href="/editTopic/1">
+            <Link href={`/editTopic/${topic._id}`}>
               <HiPencilAlt size={24} />
             </Link>
           </div>
